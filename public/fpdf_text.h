@@ -89,6 +89,8 @@ DLLEXPORT double STDCALL FPDFText_GetFontSize(FPDF_TEXTPAGE text_page, int index
 DLLEXPORT void STDCALL FPDFText_GetCharBox(FPDF_TEXTPAGE text_page, int index, double* left,
                                                     double* right, double* bottom, double* top);
 
+DLLEXPORT void STDCALL FPDFText_GetOrigin(FPDF_TEXTPAGE text_page, int index, double* x, double* y);
+
 // Function: FPDFText_GetCharIndexAtPos
 //          Get the index of a character at or nearby a certain position on the page.
 // Parameters:

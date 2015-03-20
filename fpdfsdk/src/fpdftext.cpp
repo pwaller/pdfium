@@ -75,6 +75,19 @@ DLLEXPORT void STDCALL FPDFText_GetCharBox(FPDF_TEXTPAGE text_page, int index,do
 	*top=charinfo.m_CharBox.top;
 }
 
+
+DLLEXPORT void STDCALL FPDFText_GetOrigin(FPDF_TEXTPAGE text_page, int index, double* x, double* y)
+{
+	if (!text_page) return;
+	IPDF_TextPage* textpage=(IPDF_TextPage*)text_page;
+	
+	if (index<0 || index>=textpage->CountChars()) return ;
+	FPDF_CHAR_INFO	charinfo;
+	textpage->GetCharInfo(index,charinfo);
+	*x=charinfo.m_OriginX;
+	*y=charinfo.m_OriginY;
+}
+
 //select
 DLLEXPORT int STDCALL FPDFText_GetCharIndexAtPos(FPDF_TEXTPAGE text_page,double x,double y,double xTorelance,double yTorelance)
 {
